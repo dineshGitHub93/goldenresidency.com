@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Residency</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/rstyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./whatsapp/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./whatsapp/floating-wpp.min.js"></script>
+  <link rel="stylesheet" href="./whatsapp/floating-wpp.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div id="myDiv"></div>
+  <header>
+    <div class="content flex_space">
+      <div class="logo">
+        <img src="images/logo.png" alt="">
+      </div>
+      <div class="navlinks">
+        <ul id="menulist">
+          <li><a href="#home">home</a> </li>
+          <li><a href="#about">about</a> </li>
+          <li><a href="#rooms">rooms</a> </li>
+          <li><a href="#pages">pages</a> </li>
+          <li><a href="#news">news</a> </li>
+          <li><a href="#contact">contact</a> </li>
+          <li> <i class="fa fa-search"></i> </li>
+          <li> <a href="#" id="primary-btn" class="primary-btn">Enquiry Now</a></li>
+        </ul>
+        <span class="fa fa-bars" onclick="menutoggle()"></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="popup">
+    <div class="popup-content">
+      <div class="pcontainer">
+        <div class="form-box">
+          <img src="images/icons8-cancel-24.png" alt="close" class="close" id="close">
+            <form  method="post" action="https://script.google.com/macros/s/AKfycbw8DDjPuPZFvg9neWj2xyWql-BvPfRZp1HElJc7tq_ZRVF2gNEyGSKaUAbiTGPdkMHW/exec">
+                <h2>Enquire Form</h2>
+                <div class="input-box">
+                    <input type="text" name="Username" placeholder="User Name">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="mobilenumber" placeholder="Mobile Number">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Check-in Date" name="Check-in Date" onfocus="(this.type='date')" onblur="(this.type='text')" >
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Check-out Date" name="Check-out Date" onfocus="(this.type='date')" onblur="(this.type='text')" >
+                </div>
+                <div class="input-box">
+                    <input type="number" name="AdultsCount" placeholder="No of Adults">
+                </div>
+                <div class="input-box">
+                    <input type="number" name="ChildernCount" placeholder="No of Childern">
+                </div>
+                <div class="button">
+                    <input type="submit" class="btn" name="enquire" value="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+  </div>
+
+
+  <script>
+
+$("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbw8DDjPuPZFvg9neWj2xyWql-BvPfRZp1HElJc7tq_ZRVF2gNEyGSKaUAbiTGPdkMHW/exec",
+                data:$("#submit-form").serialize(),
+                method:"POST",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+
+    document.getElementById("primary-btn").addEventListener("click", function(){
+      document.querySelector(".popup").style.display ="flex";
+      document.getElementById("b1").style.visibility="hidden";
+    })
+
+    document.getElementById("close").addEventListener("click", function(){
+      document.querySelector(".popup").style.display ="none";
+      document.getElementById("b1").style.visibility="visible";
+    })
+    var menulist = document.getElementById('menulist');
+    menulist.style.maxHeight = "0px";
+
+    function menutoggle() {
+      if (menulist.style.maxHeight == "0px") {
+        menulist.style.maxHeight = "100vh";
+      } else {
+        menulist.style.maxHeight = "0px";
+      }
+    }
+  </script>
+
+
+  <section class="home" id="b1">
+    <div class="content">
+      <div class="owl-carousel owl-theme">
+        <div class="item" >
+          <img src="images/banner-0.jpg" alt="" >
+          <div class="text">
+            <h1>Spend Your Holidays in Kodaikanal</h1>
+            <p>Golden Residency Cottages & Homestay is located at kodaikanal, a hill station in Tamilnadu.
+            </p>
+            <div class="flex">
+              <button class="primary-btn">READ MORE</button>
+              <button class="secondary-btn">CONTACT US</button>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/banner-1.jpg" alt="">
+          <div class="text">
+            <h1>Spend Your Holidays in Kodaikanal</h1>
+            <p>Golden Residency Cottages & Homestay is located at kodaikanal, a hill station in Tamilnadu.
+            </p>
+            <div class="flex">
+              <button class="primary-btn">READ MORE</button>
+              <button class="secondary-btn">CONTACT US</button>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/banner-2.png" alt="">
+          <div class="text">
+            <h1>Spend Your Holidays in Kodaikanal</h1>
+            <p>Golden Residency Cottages & Homestay is located at kodaikanal, a hill station in Tamilnadu.
+            </p>
+            <div class="flex">
+              <button class="primary-btn">READ MORE</button>
+              <button class="secondary-btn">CONTACT US</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: true,
+      dots: false,
+      navText: ["<i class = 'fa fa-chevron-left'></i>", "<i class = 'fa fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 1
+        },
+        1000: {
+          items: 1
+        }
+      }
+    })
+  </script>
+
+  <section class="book">
+    <div class="container flex_space">
+      <div class="text">
+        <h1> <span>Book </span> Your Rooms </h1>
+      </div>
+      <div class="scrollbar" width="100%">
+        <marquee   direction="left"> Hello </marquee>
+      </div>
+      <div class="mbutton">
+        <input type="submit" value="CHECK AVAILABILITY">
+      </div>
+    </div>
+  </section>
+
+  <section class="about top">
+    <div class="container flex">
+      <div class="left">
+        <div class="heading">
+          <h1>WELCOME</h1>
+          <h2>Golden Residency</h2>
+        </div>
+        <p>The range of services provided by Golden Residency in Kodai ensures all travelers get the most out of their stay. Post your pictures and answer your emails whenever you want, with the resort's free Wi-Fi internet access. The resort provides car hire and shuttle services to help you get to where you want to go in Kodaikanal. Parking is available and free, provided by the resort for guests with their own transportation.
+           Guestrooms at Kodai Resort Hotel are fitted with all the amenities travelers need. The resort provides linen service and blackout curtains in some rooms for the benefit of guests. Some selected rooms have television and cable TV to keep guests entertained. 
+           Kodai Golden Resideny also provides toiletries and towels in bathrooms for select rooms..</p>
+        <button class="primary-btn">ABOUT US</button>
+      </div>
+      <div class="right">
+        <img src="images/golden_home.jpg" alt="" width="600" height="500">
+      </div>
+    </div>
+  </section>
+
+  <section class="counter top" >
+    <div class="container grid">
+      <div class="box">
+        <h1>2700</h1>
+        <hr>
+        <span>Visited Customers</span>
+      </div>
+      <div class="box">
+        <h1>2550</h1>
+        <hr>
+        <span>Happy Customer</span>
+      </div>
+     
+    </div>
+  </section>
+
+  <section class="rooms">
+    <div class="container top">
+      <div class="heading">
+        <h1>EXPOLRE</h1>
+        <h2>Our Cottages</h2>
+        <p>The beautiful hill town of Tamil Nadu calls for the perfect place of stay, and this list brings you just that. With specially curated </br>cottages in keeping with individual requirements, this list includes a diverse range of options, from airy, spacious rooms amidst </br>the hills, to cozy warm spaces by the Kodaikanal Lake, all of which shall help you find the ideal place to suit your needs.
+        </p>
+      </div>
+
+      <div class="content mtop">
+        <div class="owl-carousel owl-carousel1 owl-theme">
+          <div class="items">
+            <div class="image">
+              <img src="images/about.png" alt="">
+            </div>
+            <div class="text">
+              <div><h2>Sunrise view Cottage</h2></div>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <div class="card-body">
+                <div class="location">
+                  <div class="location-map">
+                    <i class='fas fa-map-marker-alt' style='font-size:24px'></i>
+                   &nbspNaidupuram <br>
+                   <i class='far fa-hand-point-right' style='font-size:24px'></i> 2.4 kms from Kodaikanal Lake
+                   <br><i class='fas fa-home' style='font-size:24px'></i> Villa with only 1 room option 
+                  </div>
+                </div>
+                <div class="readMoreSmall card-text">
+                  Sunrise view Cottage is located in Kodaikānāl, 3.7 km from Kodaikanal Lake, 3.9 km from Kodaikanal Bus Stand, and 3.9 km from Bear Shola Falls
+                  <span class="clickable linkColor morelinkSmall"> (Read More)</span>
+                  <span class="moreTextHidden"> service and free WiFi.</span>
+                </div>
+               <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3>2500 <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="items">
+            <div class="image">
+              <img src="images/banner-2.png" alt="">
+            </div>
+            <div class="text">
+              <h2>Dream View Cottage</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <div class="location">
+                <div class="location-map">
+                  <i class='fas fa-map-marker-alt' style='font-size:24px'></i>
+                 &nbspNaidupuram <br>
+                 <i class='far fa-hand-point-right' style='font-size:24px'></i> 2.4 kms from Kodaikanal Lake
+                 <br><i class='fas fa-home' style='font-size:24px'></i> Villa with only 1 room option 
+                </div>
+              </div>
+              <div class="readMoreSmall card-text">
+                Sunrise view Cottage is located in Kodaikānāl, 3.7 km from Kodaikanal Lake, 3.9 km from Kodaikanal Bus Stand, and 3.9 km from Bear Shola Falls
+                <span class="clickable linkColor morelinkSmall"> (Read More)</span>
+                <span class="moreTextHidden"> service and free WiFi.</span>
+              </div>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3>2500 <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="image">
+              <img src="images/cottage3.jpeg" alt="">
+            </div>
+            <div class="text">
+              <h2>Deluxe double</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <div class="location">
+                <div class="location-map">
+                  <i class='fas fa-map-marker-alt' style='font-size:24px'></i>
+                 &nbspNaidupuram <br>
+                 <i class='far fa-hand-point-right' style='font-size:24px'></i> 2.4 kms from Kodaikanal Lake
+                 <br><i class='fas fa-home' style='font-size:24px'></i> Villa with only 1 room option 
+                </div>
+              </div>
+              <div class="readMoreSmall card-text">
+                Sunrise view Cottage is located in Kodaikānāl, 3.7 km from Kodaikanal Lake, 3.9 km from Kodaikanal Bus Stand, and 3.9 km from Bear Shola Falls
+                <span class="clickable linkColor morelinkSmall"> (Read More)</span>
+                <span class="moreTextHidden"> service and free WiFi.</span>
+              </div>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3>3250 <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="image">
+              <img src="images/cottage5.jpeg" alt="">
+            </div>
+            <div class="text">
+              <h2>Valley View Cottage</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <div class="location">
+                <div class="location-map">
+                  <i class='fas fa-map-marker-alt' style='font-size:24px'></i>
+                 &nbspNaidupuram <br>
+                 <i class='far fa-hand-point-right' style='font-size:24px'></i> 2.4 kms from Kodaikanal Lake
+                 <br><i class='fas fa-home' style='font-size:24px'></i> Villa with only 1 room option 
+                </div>
+              </div>
+              <div class="readMoreSmall card-text">
+                Sunrise view Cottage is located in Kodaikānāl, 3.7 km from Kodaikanal Lake, 3.9 km from Kodaikanal Bus Stand, and 3.9 km from Bear Shola Falls
+                <span class="clickable linkColor morelinkSmall"> (Read More)</span>
+                <span class="moreTextHidden"> service and free WiFi.</span>
+              </div>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3>5000 <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rooms">
+    <div class="container top">
+      <div class="heading">
+        <h1>EXPOLRE</h1>
+        <h2>Our Rooms</h2>
+        <p>Luxurious rooms and suites come with private balconies opening to beautiful valley views.
+        </p>
+      </div>
+
+      <div class="content mtop">
+        <div class="owl-carousel owl-carousel1 owl-theme">
+          <div class="items">
+            <div class="image">
+              <img src="images/room-1.jpeg" alt="">
+            </div>
+            <div class="text">
+              <h2>Deluxe Room</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <p>This double room has a balcony, seating area and electric kettle.
+              </p>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3> <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="image">
+              <img src="images/room-2.jpeg" alt="">
+            </div>
+            <div class="text">
+              <h2>Family Room</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <p>This family room features a seating area, flat-screen TV and electric kettle.
+              </p>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3> <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="image">
+              <img src="images/room-3.png" alt="">
+            </div>
+            <div class="text">
+              <h2>Deluxe double</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <p>This double room has a balcony, seating area and electric kettle.</p>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3> <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="image">
+              <img src="images/room-4.jpeg" alt="">
+            </div>
+            <div class="text">
+              <h2>Suporior Room</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <p>This double room has a balcony, seating area and electric kettle.
+              </p>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3> <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="image">
+              <img src="images/room-5.jpeg" alt="">
+            </div>
+            <div class="text">
+              <h2>Suporior Room</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <p>This double room has a kitchenware, seating area and air conditioning.</p>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3> <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="image">
+              <img src="images/room-6.jpeg" alt="">
+            </div>
+            <div class="text">
+              <h2>Suporior Room</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <p>This double room has a kitchenware, seating area and air conditioning.</p>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3> <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="image">
+              <img src="images/room-7.jpeg" alt="">
+            </div>
+            <div class="text">
+              <h2>Suporior Room</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <p>This double room has a kitchenware, seating area and air conditioning.</p>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3> <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="image">
+              <img src="images/room-8.jpeg" alt="">
+            </div>
+            <div class="text">
+              <h2>Suporior Room</h2>
+              <div class="rate flex">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <p>This double room has a kitchenware, seating area and air conditioning.</p>
+              <div class="button flex">
+                <button class="primary-btn">BOOK NOW</button>
+                <h3> <span> <br> Per Night </span> </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    $('.owl-carousel1').owlCarousel({
+      loop: true,
+      margin: 40,
+      nav: true,
+      dots: false,
+      navText: ["<i class = 'fa fa-chevron-left'></i>", "<i class = 'fa fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2,
+          margin: 10,
+        },
+        1000: {
+          items: 3
+        }
+      }
+    })
+  </script>
+
+  <section class="gallery">
+    <div class="container top">
+      <div class="heading">
+        <h1>PHOTOS</h1>
+        <h2>Our Gallery</h2>
+        <p>Places to visit in Kodaikanal around our cottages
+      </div>
+    </div>
+
+    <div class="content mtop">
+      <div class="owl-carousel owl-carousel1 owl-theme">
+        <div class="items">
+          <div class="img">
+            <img src="images/gallery-1.jpg" alt="">
+          </div>
+          <div class="overlay">
+            <span class="fa fa-plus"> </span>
+            <h3>Photo Title Here.</h3>
+          </div>
+        </div>
+        <div class="items">
+          <div class="img">
+            <img src="images/gallery-2.jpg" alt="">
+          </div>
+          <div class="overlay">
+            <span class="fa fa-plus"> </span>
+            <h3>Photo Title Here.</h3>
+          </div>
+        </div>
+        <div class="items">
+          <div class="img">
+            <img src="images/gallery-3.jpg" type="image/webp" alt="">
+          </div>
+          <div class="overlay">
+            <span class="fa fa-plus"> </span>
+            <h3>Kodaikanal, Tamil Nadu.</h3>
+          </div>
+        </div>
+        <div class="items">
+          <div class="img">
+            <img src="images/gallery-4.jpg" alt="">
+          </div>
+          <div class="overlay">
+            <span class="fa fa-plus"> </span>
+            <h3>Green Valley View (Suicide Point).</h3>
+          </div>
+        </div>
+        <div class="items">
+          <div class="img">
+            <img src="images/gallery-5.jpg" alt="">
+          </div>
+          <div class="overlay">
+            <span class="fa fa-plus"> </span>
+            <h3>Kurinji Andavar Temple.</h3>
+          </div>
+        </div>
+        <div class="items">
+          <div class="img">
+            <img src="images/gallery-6.jpg" alt="">
+          </div>
+          <div class="overlay">
+            <span class="fa fa-plus"> </span>
+            <h3>Pillar Rocks.</h3>
+          </div>
+        </div>
+        <div class="items">
+          <div class="img">
+            <img src="images/gallery-7.jpg" alt="">
+          </div>
+          <div class="overlay">
+            <span class="fa fa-plus"> </span>
+            <h3>Guna Caves.</h3>
+          </div>
+        </div>
+        <div class="items">
+          <div class="img">
+            <img src="images/gallery-8.jpg" alt="">
+          </div>
+          <div class="overlay">
+            <span class="fa fa-plus"> </span>
+            <h3>Photo Title Here.</h3>
+          </div>
+        </div>
+        <div class="items">
+          <div class="img">
+            <img src="images/gallery-9.jpg" alt="">
+          </div>
+          <div class="overlay">
+            <span class="fa fa-plus"> </span>
+            <h3>Photo Title Here.</h3>
+          </div>
+        </div>
+        <div class="items">
+          <div class="img">
+            <img src="images/gallery-10.jpg" alt="">
+          </div>
+          <div class="overlay">
+            <span class="fa fa-plus"> </span>
+            <h3>Poombarai</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    $('.owl-carousel1').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: true,
+      dots: false,
+      autoplay: true,
+      autoplayTimeout: 1000,
+      autoplayHoverPause: true,
+      navText: ["<i class = 'fa fa-chevron-left'></i>", "<i class = 'fa fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 4,
+        },
+        1000: {
+          items: 6
+        }
+      }
+    })
+  </script>
+
+
+  <section class="services top">
+    <div class="container">
+      <div class="heading">
+        <h1>SERVICES</h1>
+        <h2>Our Services</h2>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+      </div>
+
+
+      <div class="content flex_space">
+        <div class="left grid2">
+          <div class="box">
+            <div class="text">
+              <i class="fa-solid fa-champagne-glasses"></i>
+              <h3>Delious Food</h3>
+            </div>
+          </div>
+          <div class="box">
+            <div class="text">
+              <i class="fa-sharp fa-solid fa-car"></i>
+              <h3>Taxis & shuttle</h3>
+            </div>
+          </div>
+          <div class="box">
+            <div class="text">
+              <i class="fa-sharp fa-solid fa-wifi"></i>
+              <h3>WiFi</h3>
+            </div>
+          </div>
+          <div class="box">
+            <div class="text">
+              <i class="fa-solid fa-fire"></i>
+              <h3>Camp Fire</h3>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <img src="images/service.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section class="Customer top">
+    <div class="container">
+      <div class="owl-carousel owl-carousel2 owl-theme">
+        <div class="item">
+          <i class="fa-solid fa-quote-right"></i>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <h3>Julia Robertson</h3>
+          <label>Julia Robertson</label>
+        </div>
+        <div class="item">
+          <i class="fa-solid fa-quote-right"></i>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <h3>Julia Robertson</h3>
+          <label>Julia Robertson</label>
+        </div>
+        <div class="item">
+          <i class="fa-solid fa-quote-right"></i>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <h3>Julia Robertson</h3>
+          <label>Julia Robertson</label>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    $('.owl-carousel2').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: false,
+      dots: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 1,
+        },
+        1000: {
+          items: 1
+        }
+      }
+    })
+  </script>
+<script type="text/javascript">
+  $(function () {
+    $('#myDiv').floatingWhatsApp({
+      phone: '9003237574',
+      popupMessage: 'Hello, Welcome to Golden Residency',
+      position: 'right',
+
+    });
+  });
+</script>
+  <footer>
+    <div class="container grid">
+      <div class="box">
+        <h1>GOLDEN RESIDENCY</h1>
+        <p>We offer a well appointed, fully furnished Cottage with Drawing, Dining, Kitchen, Sit out area & Luxury bedrooms with attached bathrooms. Its's like staying in your own house when you are on a holiday. This is a spacious private cottage with amenities aimed at having homely private stay rather than a hotel atmosphere.</p>
+
+        <div class="icon">
+          <i class="fa fa-facebook-f"></i>
+          <i class="fa fa-instagram"></i>
+          <i class="fa fa-twitter"></i>
+          <i class="fa fa-youtube"></i>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2>Links</h2>
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Rooms</li>
+          <li>Services</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h2>Contact Us</h2>
+        <ul>
+          <li>
+            <span class="fa fa-location-dot"></span>
+            <b>Address :</b><br>
+            No.2/93-1,Shanmugapuram,Naidupuram, Kodaikanal - 624101
+          </li>
+          <li>
+            <span class="fa fa-phone"></span>
+            <b>Mobile Number :</b><br>
+            +91 988-497-0308
+          </li>
+          <li>
+            <span class="fa fa-envelope"></span>
+            <b>Email ID :</b><br>
+            goldenresidency22@gmail.com
+          </li>
+        </ul>
+      </div>
+      <div class="box">
+        <h2>Our Location</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d981.5162287539163!2d77.48761847766588!3d10.256348411173215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1682890148318!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </footer>
+
+  <div class="legal" >
+    <p class="container" style="text-align: center;">© Golden Residency, All Rights Reserved. <a href="https://www.free-counters.org/">Golden Residency</a>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/auth.php?id=aecdbb081e261f3190f030fd6db213905f84bfec"></script>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/809274/t/9"></script>
+      <a href="https://www.freevisitorcounters.com/en/home/stats/id/809274" target="_blank"><br>
+      </a>
+    </p>
+
+  </div>
+  <script src="https://kit.fontawesome.com/032d11eac3.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
